@@ -12,11 +12,15 @@
 </head>
 <body>
 
-    <button class="navbar-toggler d-md-none" type="button" id="toggle-sidebar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <!-- Sidebar -->
+    <!-- Botón Hamburguesa para pantallas pequeñas -->
+    <nav class="navbar navbar-dark bg-dark d-md-none">
+        <button id="toggle-sidebar" class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+
+    <!-- Sidebar (menú lateral) -->
     <div id="sidebar" class="bg-dark text-white p-3 position-fixed">
         <img src="images/house-6935453_1280.jpg" alt="Logo Solar Marketplace" class="img-fluid mb-3">
         <h2 class="mb-4">Solar Marketplace</h2>
@@ -39,7 +43,7 @@
     </div>
 
     <!-- Main Content -->
-    <main class="container" style="margin-left: 270px;">
+    <main class="container">
         <!-- Catálogo de productos -->
         <section id="catalogo" class="active section-content">
             <h2 class="mt-4">Catálogo de Productos</h2>
@@ -68,54 +72,19 @@
 
             <!-- Lista de productos en formato de tarjetas -->
             <div class="row g-4" id="product-list">
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="images/solar-8244680_1280.jpg" class="card-img-top" alt="Panel Solar 200W">
-                        <div class="card-body">
-                            <h5 class="card-title">Panel Solar 200W</h5>
-                            <p class="card-text">Precio: $800</p>
-                            <p class="card-text">Potencia: 200W</p>
-                            <p class="card-text">Eficiencia: 18%</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="images/solar-panels-4982779_1280.jpg" class="card-img-top" alt="Panel Solar 300W">
-                        <div class="card-body">
-                            <h5 class="card-title">Panel Solar 300W</h5>
-                            <p class="card-text">Precio: $1200</p>
-                            <p class="card-text">Potencia: 300W</p>
-                            <p class="card-text">Eficiencia: 20%</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="images/solar-panels-4985342_1280.jpg" class="card-img-top" alt="Panel Solar 500W">
-                        <div class="card-body">
-                            <h5 class="card-title">Panel Solar 500W</h5>
-                            <p class="card-text">Precio: $2000</p>
-                            <p class="card-text">Potencia: 500W</p>
-                            <p class="card-text">Eficiencia: 22%</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Aquí se cargarán los productos -->
             </div>
         </section>
 
-
-         <!-- Calculadora de Eficiencia -->
-         <section id="calculadora" class="section-content" style="display: none;">
+        <!-- Calculadora de Eficiencia -->
+        <section id="calculadora" class="section-content" style="display: none;">
             <h2 class="mt-4">Calculadora de Eficiencia Energética</h2>
             <form id="calculator-form" class="my-3">
                 <div class="row g-3">
-                    <!-- Input para el consumo de energía -->
                     <div class="col-md-4 col-sm-12">
                         <label for="consumo" class="form-label">Consumo mensual (kWh):</label>
                         <input type="number" id="consumo" class="form-control" placeholder="Introduce tu consumo">
                     </div>
-                    <!-- Input para la ubicación (simulando diferentes horas de sol) -->
                     <div class="col-md-4 col-sm-12">
                         <label for="ubicacion" class="form-label">Ubicación (Horas de sol/día):</label>
                         <select id="ubicacion" class="form-select">
@@ -125,7 +94,6 @@
                             <option value="7">Ubicación con 7 horas de sol</option>
                         </select>
                     </div>
-                    <!-- Dropdown para seleccionar el panel solar -->
                     <div class="col-md-4 col-sm-12">
                         <label for="panel" class="form-label">Selecciona el Panel Solar:</label>
                         <select id="panel" class="form-select">
@@ -137,16 +105,13 @@
                 </div>
                 <button type="button" id="calcular-btn" class="btn btn-primary mt-3">Calcular Eficiencia</button>
             </form>
-
             <!-- Resultado -->
             <div id="resultado" class="alert alert-info mt-4" style="display: none;"></div>
         </section>
 
-
         <!-- Sección de Instaladores -->
         <section id="instaladores" class="section-content" style="display: none;">
             <h2 class="mt-4">Instaladores Certificados</h2>
-
             <!-- Filtros de búsqueda -->
             <div class="filters my-3">
                 <div class="row g-3">
@@ -169,73 +134,73 @@
                     </div>
                 </div>
             </div>
-
             <!-- Lista de instaladores -->
             <div class="row g-4" id="instaladores-list">
-                <!-- Aquí se cargarán los instaladores desde el script.js -->
+                <!-- Aquí se cargarán los instaladores -->
             </div>
         </section>
 
         <!-- Sección de Financiamiento -->
-<section id="financiamiento" class="section-content" style="display: none;">
-    <h2 class="mt-4">Opciones de Financiamiento</h2>
+        <!-- Sección de Financiamiento -->
+        <section id="financiamiento" class="section-content" style="display: none;">
+            <h2 class="mt-4">Opciones de Financiamiento</h2>
 
-    <!-- Opciones de Financiamiento -->
-    <div class="row g-3">
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Pago Completo</h5>
-                    <p class="card-text">Paga el monto total de los paneles solares de una sola vez.</p>
-                    <button class="btn btn-primary solicitar-financiamiento" data-financiamiento="Pago Completo">Seleccionar</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Pago en Cuotas</h5>
-                    <p class="card-text">Divide el costo de los paneles en cuotas mensuales de 12 a 24 meses con un interés del 10%.</p>
-                    <button class="btn btn-primary solicitar-financiamiento" data-financiamiento="Pago en Cuotas">Seleccionar</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Financiamiento Bancario</h5>
-                    <p class="card-text">Financia tus paneles solares con un préstamo bancario. Tasas de interés del 8% anual.</p>
-                    <button class="btn btn-primary solicitar-financiamiento" data-financiamiento="Financiamiento Bancario">Seleccionar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Calculadora de Financiamiento -->
-    <div class="mt-4">
-        <h3>Calculadora de Financiamiento</h3>
-        <form id="calculadora-financiamiento">
+            <!-- Opciones de Financiamiento -->
             <div class="row g-3">
-                <div class="col-md-6">
-                    <label for="monto" class="form-label">Monto a financiar (en $):</label>
-                    <input type="number" id="monto" class="form-control" placeholder="Introduce el monto a financiar">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Pago Completo</h5>
+                            <p class="card-text">Paga el monto total de los paneles solares de una sola vez.</p>
+                            <button class="btn btn-primary solicitar-financiamiento" data-financiamiento="Pago Completo">Seleccionar</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <label for="plazo" class="form-label">Plazo en meses:</label>
-                    <select id="plazo" class="form-select">
-                        <option value="12">12 meses</option>
-                        <option value="24">24 meses</option>
-                        <option value="36">36 meses</option>
-                    </select>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Pago en Cuotas</h5>
+                            <p class="card-text">Divide el costo de los paneles en cuotas mensuales de 12 a 24 meses con un interés del 10%.</p>
+                            <button class="btn btn-primary solicitar-financiamiento" data-financiamiento="Pago en Cuotas">Seleccionar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Financiamiento Bancario</h5>
+                            <p class="card-text">Financia tus paneles solares con un préstamo bancario. Tasas de interés del 8% anual.</p>
+                            <button class="btn btn-primary solicitar-financiamiento" data-financiamiento="Financiamiento Bancario">Seleccionar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button type="button" id="calcular-financiamiento-btn" class="btn btn-primary mt-3">Calcular Costo Total</button>
-        </form>
 
-        <!-- Resultado del cálculo -->
-        <div id="resultado-financiamiento" class="alert alert-info mt-4" style="display: none;"></div>
-    </div>
-</section>
+            <!-- Calculadora de Financiamiento -->
+            <div class="mt-4">
+                <h3>Calculadora de Financiamiento</h3>
+                <form id="calculadora-financiamiento">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="monto" class="form-label">Monto a financiar (en $):</label>
+                            <input type="number" id="monto" class="form-control" placeholder="Introduce el monto a financiar">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="plazo" class="form-label">Plazo en meses:</label>
+                            <select id="plazo" class="form-select">
+                                <option value="12">12 meses</option>
+                                <option value="24">24 meses</option>
+                                <option value="36">36 meses</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" id="calcular-financiamiento-btn" class="btn btn-primary mt-3">Calcular Costo Total</button>
+                </form>
+
+                <!-- Resultado del cálculo -->
+                <div id="resultado-financiamiento" class="alert alert-info mt-4" style="display: none;"></div>
+            </div>
+        </section>
     </main>
 
     <!-- Bootstrap 5 JS Bundle with Popper -->

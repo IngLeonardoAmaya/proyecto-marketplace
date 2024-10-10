@@ -1,51 +1,14 @@
-/* Estilos del sidebar */
+/* Sidebar */
 #sidebar {
-    width: 250px; /* Ancho del sidebar en pantallas grandes */
+    width: 250px;
     transition: all 0.3s ease;
     height: 100vh;
-}
-
-#sidebar.open {
-    transform: translateX(0); /* Mostrar el sidebar */
-}
-
-@media (max-width: 768px) {
-    #sidebar {
-        transform: translateX(-100%); /* Ocultamos el sidebar fuera de la pantalla */
-    }
-
-    #sidebar.open {
-        transform: translateX(0); /* Cuando el sidebar está abierto */
-    }
-
-    /* Ajustamos el tamaño del contenido cuando el sidebar está oculto */
-    main {
-        margin-left: 0; /* El contenido toma todo el ancho */
-        width: 100%;
-        transition: margin-left 0.3s ease;
-    }
-
-    /* Cuando el sidebar está visible, el contenido se ajusta */
-    #sidebar.open + main {
-        margin-left: 250px; /* Desplazamos el contenido cuando el sidebar está abierto */
-    }
-
-    #toggle-sidebar {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        z-index: 1100; /* Aseguramos que el botón esté por encima del contenido */
-        border: none;
-        background-color: black;
-    }
-
-    .navbar-toggler-icon {
-        width: 30px;
-        height: 3px;
-        background-color: black;
-        display: block;
-        margin: 5px 0;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #343a40;
+    overflow-y: auto;
 }
 
 #sidebar img {
@@ -74,21 +37,41 @@
 }
 
 #sidebar ul li a:hover, #sidebar ul li a.active {
-    background-color: #34495e;
+    background-color: #495057;
 }
 
 /* Estilo del main */
 main {
-    margin-left: 270px; /* Espacio para el sidebar, ligeramente más ancho que el sidebar para evitar el solapamiento */
+    margin-left: 270px; /* Espacio para el sidebar */
     padding: 2rem;
     background-color: #f4f4f4;
     position: relative;
-    z-index: 1; /* Asegura que el contenido principal no se superponga al sidebar */
+    z-index: 1;
 }
 
 /* Ajuste del tamaño de las imágenes dentro de las cards */
 .card-img-top {
-    width: 100%; /* La imagen cubre todo el ancho del contenedor */
-    height: 200px; /* Aumentamos la altura para que sea más prominente */
-    object-fit: cover; /* Ajustar la imagen dentro del contenedor sin distorsión */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        transform: translateX(-100%);
+        width: 80%; /* Sidebar toma un 80% en móviles */
+    }
+
+    #sidebar.open {
+        transform: translateX(0);
+    }
+
+    main {
+        margin-left: 0;
+        padding: 2rem;
+    }
+
+    #toggle-sidebar {
+        z-index: 1100;
+    }
 }
