@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+    // Controlar el menú hamburguesa para abrir/cerrar el sidebar
+    $('#toggle-sidebar').on('click', function() {
+        $('#sidebar').toggleClass('open');
+        $('main').toggleClass('sidebar-open');
+    });
+
   // Array de instaladores de ejemplo
   const instaladores = [
     {
