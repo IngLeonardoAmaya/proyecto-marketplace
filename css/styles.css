@@ -1,7 +1,30 @@
-/* Sidebar */
-#sidebar {
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+ }
+ 
+ .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+    padding: 0.5rem 1rem;
+    background-color: #343a40;
+    display: block;
+ }
+ 
+ #toggle-sidebar {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+ }
+ 
+ #sidebar {
     width: 250px;
-    transition: all 0.3s ease;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -9,69 +32,100 @@
     z-index: 1000;
     background-color: #343a40;
     overflow-y: auto;
-}
-
-#sidebar img {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+ }
+ 
+ #sidebar.open {
+    transform: translateX(0);
+ }
+ 
+ #sidebar img {
     max-width: 100%;
     margin-bottom: 1rem;
-}
-
-#sidebar h2 {
+ }
+ 
+ #sidebar h2 {
     font-size: 1.5rem;
-}
-
-#sidebar ul {
+    color: white;
+    padding: 1rem;
+    margin: 0;
+ }
+ 
+ #sidebar ul {
     list-style-type: none;
     padding: 0;
-}
-
-#sidebar ul li {
+    margin: 0;
+ }
+ 
+ #sidebar ul li {
     margin-bottom: 1rem;
-}
-
-#sidebar ul li a {
+ }
+ 
+ #sidebar ul li a {
     color: white;
     text-decoration: none;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     display: block;
-}
-
-#sidebar ul li a:hover, #sidebar ul li a.active {
+    transition: background-color 0.3s;
+ }
+ 
+ #sidebar ul li a:hover,
+ #sidebar ul li a.active {
     background-color: #495057;
-}
-
-/* Estilo del main */
-main {
-    margin-left: 270px; /* Espacio para el sidebar */
-    padding: 2rem;
+ }
+ 
+ main {
+    padding: 4rem 2rem 2rem;
+    min-height: 100vh;
     background-color: #f4f4f4;
-    position: relative;
-    z-index: 1;
-}
-
-/* Ajuste del tamaño de las imágenes dentro de las cards */
-.card-img-top {
+    width: 100%;
+ }
+ 
+ .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+ }
+ 
+ .card-img-top {
     width: 100%;
     height: 200px;
     object-fit: cover;
-}
-
-@media (max-width: 768px) {
-    #sidebar {
-        transform: translateX(-100%);
-        width: 80%; /* Sidebar toma un 80% en móviles */
-    }
-
-    #sidebar.open {
-        transform: translateX(0);
-    }
-
-    main {
-        margin-left: 0;
-        padding: 2rem;
-    }
-
-    #toggle-sidebar {
-        z-index: 1100;
-    }
-}
+ }
+ 
+ .filters {
+    margin-bottom: 2rem;
+ }
+ 
+ .form-select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    appearance: none;
+ }
+ 
+ .card {
+    margin-bottom: 1rem;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ }
+ 
+ .row {
+    margin-right: -15px;
+    margin-left: -15px;
+ }
+ 
+ .col-md-4 {
+    padding-right: 15px;
+    padding-left: 15px;
+ }
